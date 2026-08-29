@@ -1,0 +1,6 @@
+# 已升级到当前稳定安全版本（与运行环境实测一致，避免破坏性大版本跳跃）
+fastapi==0.128.8
+uvicorn[standard]==0.39.0
+httpx==0.28.1
+cryptography==48.0.1
+redis==7.0.1

@@ -1,0 +1,24 @@
+[Unit]
+Description=Key Sale System
+Wants=network-online.target
+After=network-online.target redis-server.service
+Requires=redis-server.service
+
+[Service]
+Type=simple
+User=www
+Group=www
+WorkingDirectory=/opt/key-sale-system
+EnvironmentFile=/etc/key-sale-system.env
+ExecStart=/opt/key-sale-system/.venv/bin/uvicorn backend.main:app --host 127.0.0.1 --port 5230
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/key-sale-system/data
+
+[Install]
+WantedBy=multi-user.target

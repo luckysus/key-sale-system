@@ -1,0 +1,24 @@
+{
+  "name": "key-sale-system",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --config frontend/vite.config.ts",
+    "build": "npm run build:admin && npm run build:buyer",
+    "build:admin": "vite build --config frontend/vite.config.ts --mode admin",
+    "build:buyer": "vite build --config frontend/vite.config.ts --mode buyer",
+    "start": "uvicorn backend.main:app --host 127.0.0.1 --port 5230",
+    "test": "node --test tests/*.test.mjs && node tests/run-python-tests.mjs"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "ant-design-vue": "^4.2.6",
+    "pinia": "^2.3.0",
+    "vite": "^6.0.7",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vue-tsc": "^2.2.0"
+  }
+}
